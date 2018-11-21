@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+    <head>
+
+    </head>
+    <style>
+    .email-form{
+        border      : 0.5px solid black;
+        padding-left: 10%; 
+        width       : 600px;
+    }
+    </style>
+    <body>
+        <form class='email-form' method='post' action=''>
+        <h2>Send message.</h2>
+            <table class='table'>
+                <tr><td style='width: 100px'>Email: </td><td><input type='text' name='email'></td></tr>
+                <tr><td style='width: 100px'>Subject: </td><td><input type='text' name='subject'></td></tr>
+                <tr><td style='width: 100px'>Message: </td><td><textarea name='message' cols='40' rows='8'></textarea></td></tr>
+                <tr><td style='width: 100px'><input class='sub' type='submit' name='submit' value='Send mail'></td></tr>
+            </table><br>
+        </form>
+    </body>
+    <script>
+        var formItems = document.querySelectorAll('.email-form');
+        // var formItems = form.querySelectorAll('input, textarea');
+        for(var i = 0; i < formItems.length; i++){
+            console.log(formItems[i]);
+        }
+        document.querySelector('.sub').addEventListener('click', function(event){
+            console.log(event);
+            event.preventDefault();
+        });
+    </script>
+</html>
+
+
+ 

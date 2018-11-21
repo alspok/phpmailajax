@@ -16,16 +16,20 @@
             </form><br>
         <div class='response'>here is respons</div>
         <script>
-        $(document).ready(function(event){
-            event.preventDefault();
-            $('.email-form').submit(function(){
-                $('.response').html("<b>Loading response...</b>");
-                $.post('post_receiver.php', $(this).serialize(), function(data){
-                    $('.response').html(data);
-                }).fail(function() {
-                    alert( "Posting failed." );
-                });
-                return false;
+        $(document).ready(function(){
+            $('.email-form').submit(function(event){
+                console.log(event);
+                console.log(event.currentTarget['email'].value);
+                if(event.currentTarget['email'].value != 'alspok@gmail.com'){
+                    event.preventDefault();
+                }
+            $('.response').html("<b>Loading response...</b>");
+            $.post('post_receiver.php', $(this).serialize(), function(data){
+                $('.response').html(data);
+            }).fail(function() {
+                alert( "Posting failed." );
+            });
+            return false;
             });
         });
         </script>

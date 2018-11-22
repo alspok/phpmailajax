@@ -1,32 +1,36 @@
 <?php
+
+require_once 'C:\wamp\www\alspok\PHPMail\sendmail.php';
+
 $emailData = $_POST;
 echo "<pre>";
 echo 'I was in post_receiver.php' . '<br>';
     print_r($emailData);
 echo "</pre>";
 
-$hostName = 'localhost';
-$userName = 'root';
-$password = '';
-$dbName = 'db_alspok';
-$tblName = 'mail_archive';
 
-if(sendMail($emailData))
-    echo "<p style='color: green'>Mail has been sent</p>";
-else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
+if(_sendMail($emailData))  echo "<p style='color: green'>Mail has been sent</p>";
+    else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
 
-if(archiveMail($emailData, $hostName, $userName, $password, $dbName, $tblName))
+if(archiveMail($mailData))
     echo "<p style='color: green'>Mail has been archieved</p>";
 else echo "<p style='color: red'>Mail archived failed</p>";
 
-function sendMail($emailData){
+function _sendMail($emailData){
 
     return true;
 }
 
-function archiveMail($emailData, $hostName, $userName, $password, $dbName, $tblName){
+function archiveMail($mailData){
+
+    $hostName = 'localhost';
+    $userName = 'root';
+    $password = '';
+    $dbName = 'db_alspok';
+    $tblName = 'mail_archive';
 
     $conn = new MySQLI($hostName, $userName, $password, $dbName);
+    var_dump($conn);
     $queryString = 'INSERT INTO ' . $tblName . '(email, subject, message) VALUES (?, ?, ?)';
     $stmt = $conn->prepare($queryString);
     $stmt->bind_param('sss', $emailData['email'], $emailData['subject'], $emailData['message']);

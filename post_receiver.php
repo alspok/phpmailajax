@@ -11,12 +11,13 @@ $password = '';
 $dbName = 'db_alspok';
 $tblName = 'mail_archive';
 
-$sendBoolen = sendMail($emailData);
-if($sendBoolen) echo "<p style='color: green'>Mail has been sent</p>";
-    else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
-$archiveBoolen = archiveMail($emailData, $hostName, $userName, $password, $dbName, $tblName);
-if($archiveBoolen) echo "<p style='color: green'>Mail has been archieved</p>";
-    else echo "<p style='color: red'>Mail archived failed</p>";
+if(sendMail($emailData))
+    echo "<p style='color: green'>Mail has been sent</p>";
+else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
+
+if(archiveMail($emailData, $hostName, $userName, $password, $dbName, $tblName))
+    echo "<p style='color: green'>Mail has been archieved</p>";
+else echo "<p style='color: red'>Mail archived failed</p>";
 
 function sendMail($emailData){
 

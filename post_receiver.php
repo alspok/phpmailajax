@@ -1,6 +1,6 @@
 <?php
 
-require_once 'C:\wamp\www\alspok\PHPMail\sendmail.php';
+require_once 'C:\wamp64\www\alspok\PHPMail\sendmail.php';
 
 $emailData = $_POST;
 echo "<pre>";
@@ -9,12 +9,12 @@ echo 'I was in post_receiver.php' . '<br>';
 echo "</pre>";
 
 
-if(_sendMail($emailData))  echo "<p style='color: green'>Mail has been sent</p>";
-    else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
+// if(_sendMail($emailData))  echo "<p style='color: green'>Mail has been sent</p>";
+//     else echo "<p style='color: red'>Mail sent failed</p>" . '<p>';
 
-if(archiveMail($mailData))
-    echo "<p style='color: green'>Mail has been archieved</p>";
-else echo "<p style='color: red'>Mail archived failed</p>";
+// if(archiveMail($mailData))
+//     echo "<p style='color: green'>Mail has been archieved</p>";
+// else echo "<p style='color: red'>Mail archived failed</p>";
 
 function _sendMail($emailData){
 

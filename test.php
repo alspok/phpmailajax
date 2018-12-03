@@ -1,7 +1,10 @@
 <?php
-var_dump($_POST);
-echo 'in test.php ' . $_POST['email'];
-echo "<div class='response'> Here is response: " . $_POST['email'] . " " . $_POST['subject'] . "</div>";
+echo '<pre>';
+echo var_dump($_POST);
+echo var_dump($_POST['email']);
+echo '</pre>';
+echo "<div class='response'>in test.php " . $_POST['email'] . "</div>";
+// echo "<div class='response'> Here is response: " . $_POST['email'] . " " . $_POST['subject'] . "</div>";
 
 // if(emailValidation($email)) echo 'email address valid';
 //     else echo 'email address NOT valid';

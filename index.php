@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Ajax post form</title>
-        <?php require 'test.php'; ?>
+        <?php require_once 'test.php'; ?>
         <!-- <?php require_once 'post_receiver.php'; ?> -->
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script> -->
     </head>
@@ -27,7 +27,7 @@
         var xhr = new XMLHttpRequest();
         var url ='test.php';
         xhr.open("POST", 'test.php');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(formData);
         document.querySelector('.response').innerHTML = 'processing....';
 

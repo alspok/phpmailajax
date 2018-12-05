@@ -1,6 +1,5 @@
 <?php
 var_dump($_POST);
-echo 'in test.php ' . $_POST['email'];
 echo "<div class='response'> Here is response: " . $_POST['email'] . " " . $_POST['subject'] . "</div>";
 
 // if(emailValidation($email)) echo 'email address valid';
